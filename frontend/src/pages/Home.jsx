@@ -14,7 +14,6 @@ function Home() {
       try {
         const popularMovies = await getPopularMovies();
         setMovies(popularMovies);
-        console.log("Popular movies from API:", popularMovies);
       } catch (err) {
         console.log(err);
         setError("Failed to load movies...");
@@ -22,6 +21,7 @@ function Home() {
         setLoading(false);
       }
     };
+
     loadPopularMovies();
   }, []);
 

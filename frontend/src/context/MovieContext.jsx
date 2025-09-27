@@ -4,7 +4,7 @@ const MovieContext = createContext();
 
 export const useMovieContext = () => useContext(MovieContext);
 
-export const MovieProvider = (children) => {
+export const MovieProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export const MovieProvider = (children) => {
   };
 
   const isFavorite = (movieId) => {
-    return favorites.some((movie) => movie.Id === movieId);
+    return favorites.some((movie) => movie.id === movieId);
   };
 
   const value = {
