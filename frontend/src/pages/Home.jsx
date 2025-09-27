@@ -14,6 +14,7 @@ function Home() {
       try {
         const popularMovies = await getPopularMovies();
         setMovies(popularMovies);
+        console.log("Popular movies from API:", popularMovies);
       } catch (err) {
         console.log(err);
         setError("Failed to load movies...");
@@ -45,10 +46,8 @@ function Home() {
       </form>
 
       <div className="movies-grid">
-        {/* .map --> List of elements from an array */}
-        {movies.map((movie) => (
-          <MovieCard movie={movie} key={movie.id} />
-        ))}
+        {Array.isArray(movies) &&
+          movies.map((movie) => <MovieCard movie={movie} key={movie.id} />)}
       </div>
     </div>
   );
